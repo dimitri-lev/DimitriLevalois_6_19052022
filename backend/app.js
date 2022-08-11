@@ -5,11 +5,6 @@ const path = require('path');
 const helmet = require('helmet');
 require('dotenv').config();
 
-//helmet
-//dot.env
-//Password validator
-//Rate limit
-
 //MongoDB admin sécurisé
 
 const sauceRoutes = require('./routes/sauce');
