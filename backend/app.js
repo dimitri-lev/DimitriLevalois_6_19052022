@@ -16,7 +16,6 @@ const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
 mongoose
-  // .connect(process.env.SECRET_DB, {
   .connect(
     `mongodb+srv://${process.env.SECRET_DB_NAME}:${process.env.SECRET_DB_PASSWORD}@${process.env.SECRET_DB_HOST}/?retryWrites=true&w=majority`,
     {
