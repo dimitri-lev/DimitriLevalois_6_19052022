@@ -5,11 +5,10 @@ const path = require('path');
 const helmet = require('helmet');
 require('dotenv').config();
 
-//MongoDB admin sécurisé
-
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
+// connection à la base de données mongoDB
 mongoose
   .connect(
     `mongodb+srv://${process.env.SECRET_DB_NAME}:${process.env.SECRET_DB_PASSWORD}@${process.env.SECRET_DB_HOST}/?retryWrites=true&w=majority`,
@@ -21,6 +20,7 @@ mongoose
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
+// configuration headers pour empêcher erreurs CORS (accès à l'API)
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(

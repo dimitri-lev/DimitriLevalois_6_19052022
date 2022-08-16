@@ -1,6 +1,5 @@
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
-const { STATUS_CODES } = require('http');
 
 exports.getAllSauces = (req, res, next) => {
   Sauce.find()

@@ -1,9 +1,7 @@
 const http = require('http');
 const app = require('./app');
 
-/* const cors = require('cors');
-app.use(cors()); */
-
+// normalisation du port
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
 
@@ -18,6 +16,7 @@ const normalizePort = (val) => {
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+// gestion des erreurs
 const errorHandler = (error) => {
   if (error.syscall !== 'listen') {
     throw error;
