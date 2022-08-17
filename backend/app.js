@@ -36,10 +36,11 @@ app.use((req, res, next) => {
 
 app.use(express.json()); // nous donnes accès au corps de la requête
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 app.use(helmet()); // helmet middleware pour sécurisé les headers
 
 // définition de nos routes
-app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
 
