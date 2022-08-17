@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const app = express(); // start express app
 const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet');
@@ -34,12 +34,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
+app.use(express.json()); // nous donnes accès au corps de la requête
 
+app.use(helmet()); // helmet middleware pour sécurisé les headers
+
+// définition de nos routes
 app.use('/images', express.static(path.join(__dirname, 'images')));
-
-app.use(helmet());
-
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
 

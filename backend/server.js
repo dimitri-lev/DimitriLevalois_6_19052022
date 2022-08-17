@@ -38,6 +38,7 @@ const errorHandler = (error) => {
   }
 };
 
+// rediriger process serveur vers l'app express
 const server = http.createServer(app);
 
 server.on('error', errorHandler);
